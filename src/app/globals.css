@@ -1,0 +1,375 @@
+@import '../styles/isi-brand.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * Product theme.
+ *
+ * Every value below is the ISI Group brand expressed as a product token — the
+ * named brand colours live in `src/styles/isi-brand.css` and are mapped here
+ * onto the semantic slots the UI actually consumes (`--primary`, `--card`, …).
+ * shadcn needs bare `H S% L%` triples, so the brand hex is named in a comment
+ * beside each one. Never hardcode a hex in a component: add a token here.
+ */
+
+@layer base {
+  :root {
+    /* Surfaces — cool navy-tinted grounds, never neutral grey. */
+    --background: 210 31% 95%;        /* Mist #EEF2F6 */
+    --foreground: 213 97% 13%;        /* Ironclad Blue #011E41 */
+    --card: 0 0% 100%;
+    --card-foreground: 213 97% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 97% 13%;
+
+    /* Primary = Ironclad Blue. Solid buttons and active nav are navy, not
+       bright blue — the spine of the brand. */
+    --primary: 213 97% 13%;           /* Ironclad Blue #011E41 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 212 27% 89%;         /* Foundational White #DCE3EB */
+    --secondary-foreground: 213 97% 13%;
+    --muted: 210 31% 95%;             /* Mist #EEF2F6 */
+    --muted-foreground: 216 16% 56%;  /* Slate #7D8BA0 */
+
+    /* `accent` is shadcn's hover/wash slot, so it stays a cool tint. The
+       brand's expressive accent (Worksite Blaze) is `--brand-accent` below
+       and is reserved for a single CTA per view. */
+    --accent: 212 27% 89%;            /* Foundational White #DCE3EB */
+    --accent-foreground: 213 97% 13%;
+
+    --destructive: 4 63% 46%;         /* #C0362C */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;            /* #E2E8F0 */
+    --input: 214 32% 91%;
+    --ring: 211 100% 30%;             /* Apex Blue #004A98 — brand focus ring */
+
+    /* Engineered, low corners — cards 10px. Nothing bubbly. */
+    --radius: 0.625rem;
+
+    /* Categorical chart sequence: hue-separated, brand-only. */
+    --chart-1: 211 100% 30%;          /* Apex Blue */
+    --chart-2: 16 75% 52%;            /* Worksite Blaze */
+    --chart-3: 132 55% 39%;           /* Sustainable Green */
+    --chart-4: 216 16% 56%;           /* Slate */
+    --chart-5: 221 100% 21%;          /* Dark Sapphire */
+
+    /* Brand roles — the six colours by intent. */
+    --brand: 213 97% 13%;             /* Ironclad Blue */
+    --brand-deep: 221 100% 21%;       /* Dark Sapphire */
+    --brand-accent: 16 75% 52%;       /* Worksite Blaze — one CTA per view */
+    --brand-info: 211 100% 30%;       /* Apex Blue */
+    --brand-success: 132 55% 39%;     /* Sustainable Green */
+    --brand-warning: 16 75% 52%;      /* Worksite Blaze */
+    --brand-danger: 4 63% 46%;
+
+    --surface-bg: #eef2f6;
+    --card-bg: #ffffff;
+    --sidebar-bg: #ffffff;
+    /* Transparency + blur is reserved for the sticky header and dialog scrim. */
+    --glass-bg: rgba(255, 255, 255, 0.92);
+    --glass-border: rgba(1, 30, 65, 0.08);
+    /* Shadows are navy-tinted, soft — never grey. */
+    --card-shadow: 0 4px 12px rgba(1, 30, 65, 0.1), 0 2px 4px rgba(1, 30, 65, 0.06);
+    --card-shadow-hover: 0 12px 28px rgba(1, 30, 65, 0.14), 0 4px 10px rgba(1, 30, 65, 0.08);
+    --gradient-primary: linear-gradient(135deg, #011e41 0%, #004a98 100%);
+    --gradient-active: linear-gradient(135deg, #011e41 0%, #002169 100%);
+    --text-primary: #011e41;
+    --text-secondary: #7d8ba0;
+    --border-color: #e2e8f0;
+    --scrim: rgba(1, 30, 65, 0.45);
+  }
+
+  .dark {
+    /* Dark mode is not in the brand kit; these surfaces are stepped off
+       Ironclad Blue so the navy identity survives inversion. */
+    --background: 214 76% 7%;         /* Abyss #030F22 */
+    --foreground: 212 27% 89%;        /* Foundational White #DCE3EB */
+    --card: 216 72% 15%;              /* Panel #0B2244 */
+    --card-foreground: 212 27% 89%;
+    --popover: 216 72% 15%;
+    --popover-foreground: 212 27% 89%;
+
+    /* Ironclad is invisible on a navy ground, so dark mode promotes Apex Blue
+       lightened to a tint that clears contrast against the panel. */
+    --primary: 211 62% 53%;           /* Apex Light #3B84D1 */
+    --primary-foreground: 213 97% 13%;
+
+    --secondary: 216 55% 19%;
+    --secondary-foreground: 212 27% 89%;
+    --muted: 216 55% 19%;
+    --muted-foreground: 214 21% 70%;  /* lifted Steel, for AA on navy */
+    --accent: 216 55% 21%;
+    --accent-foreground: 212 27% 89%;
+
+    --destructive: 4 63% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 40% 22%;
+    --input: 214 40% 22%;
+    --ring: 211 62% 53%;
+
+    --chart-1: 211 62% 60%;
+    --chart-2: 16 82% 65%;
+    --chart-3: 132 45% 52%;
+    --chart-4: 214 21% 70%;
+    --chart-5: 221 70% 58%;
+
+    --brand: 211 62% 53%;
+    --brand-deep: 221 70% 45%;
+    --brand-accent: 16 82% 65%;
+    --brand-info: 211 62% 60%;
+    --brand-success: 132 45% 52%;
+    --brand-warning: 16 82% 65%;
+    --brand-danger: 4 70% 64%;
+
+    --surface-bg: #030f22;
+    --card-bg: #0b2244;
+    --sidebar-bg: #06182f;
+    --glass-bg: rgba(6, 24, 47, 0.88);
+    --glass-border: rgba(220, 227, 235, 0.1);
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.45), 0 2px 4px rgba(0, 0, 0, 0.3);
+    --card-shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.55), 0 4px 10px rgba(0, 0, 0, 0.35);
+    --gradient-primary: linear-gradient(135deg, #004a98 0%, #3b84d1 100%);
+    --gradient-active: linear-gradient(135deg, #002169 0%, #004a98 100%);
+    --text-primary: #dce3eb;
+    --text-secondary: #a8b6c8;
+    --border-color: rgba(220, 227, 235, 0.12);
+    --scrim: rgba(1, 30, 65, 0.6);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--isi-font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  /* Khmer needs more leading to clear stacked vowels and subscripts. */
+  body.font-khmer {
+    font-family: var(--isi-font-khmer);
+    line-height: var(--isi-lh-khmer);
+  }
+
+  /* Display and headings are Bold with tight tracking. */
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: var(--isi-ls-heading);
+  }
+}
+
+@layer utilities {
+  /* Uppercase eyebrow above a heading — the brand's only uppercase usage,
+     always with wide tracking and always in Worksite Blaze. */
+  .isi-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: var(--isi-ls-label);
+    text-transform: uppercase;
+    color: hsl(var(--brand-accent));
+  }
+
+  /* Solid navy panel with a faint monogram watermark — the brand's stand-in
+     for photography. */
+  .isi-brand-panel {
+    background: hsl(var(--brand));
+    color: #fff;
+    background-image: url('/brand/logos/group/mark-group-inline.svg');
+    background-repeat: no-repeat;
+    background-position: right -40px bottom -40px;
+    background-size: 240px;
+  }
+
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .card-shadow {
+    box-shadow: var(--card-shadow);
+  }
+
+  .card-shadow-hover {
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #011e41 0%, #004a98 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .dark .gradient-text {
+    background: linear-gradient(135deg, #6fa6e2 0%, #dce3eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sidebar-item-active {
+    background: var(--gradient-active);
+    box-shadow: 0 4px 15px rgba(1, 30, 65, 0.35);
+  }
+
+  .dark .sidebar-item-active {
+    box-shadow: 0 4px 15px rgba(0, 74, 152, 0.4);
+  }
+
+  .bg-surface {
+    background-color: var(--surface-bg);
+  }
+
+  .bg-card-surface {
+    background-color: var(--card-bg);
+  }
+
+  .bg-sidebar {
+    background-color: var(--sidebar-bg);
+  }
+
+  .text-main {
+    color: var(--text-primary);
+  }
+
+  .text-sub {
+    color: var(--text-secondary);
+  }
+
+  .border-surface {
+    border-color: var(--border-color);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar — navy-derived, matching the neutral ramp. */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b7c2d0;
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #23385a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7d8ba0;
+}
+
+/* Animations — restrained and functional. Fades and small translates only. */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 74, 152, 0.3); }
+  50% { box-shadow: 0 0 0 8px rgba(0, 74, 152, 0); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-count-up {
+  animation: countUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
+.stagger-7 { animation-delay: 0.35s; }
+.stagger-8 { animation-delay: 0.4s; }
+
+/* Skeleton shimmer */
+.skeleton {
+  background: linear-gradient(90deg, #eef2f6 25%, #dce3eb 50%, #eef2f6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.dark .skeleton {
+  background: linear-gradient(90deg, #0b2244 25%, #14315c 50%, #0b2244 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

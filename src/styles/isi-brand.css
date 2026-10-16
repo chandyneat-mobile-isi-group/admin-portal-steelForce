@@ -1,0 +1,155 @@
+/**
+ * ISI Group — brand foundation.
+ *
+ * Transcribed from the ISI Group brand kit — six-colour Pantone system, ABC
+ * Ginto, MiSans Khmer. The guide and the masters are archived in `assets/`
+ * (see `assets/brand/ISI-Group-Brand-Guide.md`). This file holds the
+ * *brand* layer only: the typeface declarations and the raw, named brand
+ * values. Nothing here knows about the product.
+ *
+ * `globals.css` maps these onto the product's semantic tokens (--primary,
+ * --background, …), and `tailwind.config.ts` exposes them as utilities. Change
+ * a brand value here and it propagates to both.
+ */
+
+/* ── Typefaces ───────────────────────────────────────────────────────────
+   ABC Ginto (Dinamo) is the sole Latin family: Regular 400 / Medium 500 /
+   Bold 700. MiSans Khmer is declared twice — as its own family, and via
+   `unicode-range` *inside* "ABC Ginto", so Khmer copy renders correctly with
+   no markup change anywhere in the app. */
+
+@font-face {
+  font-family: 'ABC Ginto';
+  src: url('/brand/fonts/ABCGinto-Regular.woff2') format('woff2'),
+       url('/brand/fonts/ABCGinto-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ABC Ginto';
+  src: url('/brand/fonts/ABCGinto-Medium.woff2') format('woff2'),
+       url('/brand/fonts/ABCGinto-Medium.woff') format('woff');
+  font-weight: 500 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ABC Ginto';
+  src: url('/brand/fonts/ABCGinto-Bold.woff2') format('woff2'),
+       url('/brand/fonts/ABCGinto-Bold.woff') format('woff');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Khmer as a first-class family. */
+@font-face {
+  font-family: 'MiSans Khmer';
+  src: url('/brand/fonts/khmer/MiSansKhmer-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MiSans Khmer';
+  src: url('/brand/fonts/khmer/MiSansKhmer-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MiSans Khmer';
+  src: url('/brand/fonts/khmer/MiSansKhmer-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MiSans Khmer';
+  src: url('/brand/fonts/khmer/MiSansKhmer-Bold.otf') format('opentype');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Khmer script folded into the Latin family, so `font-sans` covers both. */
+@font-face {
+  font-family: 'ABC Ginto';
+  src: url('/brand/fonts/khmer/MiSansKhmer-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+1780-17FF, U+19E0-19FF, U+200B;
+}
+@font-face {
+  font-family: 'ABC Ginto';
+  src: url('/brand/fonts/khmer/MiSansKhmer-Medium.otf') format('opentype');
+  font-weight: 500 600;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+1780-17FF, U+19E0-19FF, U+200B;
+}
+@font-face {
+  font-family: 'ABC Ginto';
+  src: url('/brand/fonts/khmer/MiSansKhmer-Bold.otf') format('opentype');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+1780-17FF, U+19E0-19FF, U+200B;
+}
+
+:root {
+  /* ── The six brand colours (exact Pantone-backed values) ──────────────
+     These are the only hexes anyone is allowed to call "the brand". */
+  --isi-ironclad-blue: #011e41;      /* PANTONE 282 C — primary navy, the spine */
+  --isi-apex-blue: #004a98;          /* PANTONE 2945 C — active, links, focus */
+  --isi-dark-sapphire: #002169;      /* PANTONE 280 C — deep support sections */
+  --isi-foundational-white: #dce3eb; /* PANTONE 656 C — cool light ground */
+  --isi-worksite-blaze: #e0592a;     /* PANTONE 7579 C — the one high-energy accent */
+  --isi-sustainable-green: #2c9942;  /* PANTONE 7739 C — positive, eco */
+
+  /* ── Navy-derived neutrals ────────────────────────────────────────────
+     The brand has no pure grey. Every neutral is pulled toward Ironclad. */
+  --isi-white: #ffffff;
+  --isi-mist: #eef2f6;
+  --isi-cloud: #dce3eb;
+  --isi-steel: #b7c2d0;
+  --isi-slate: #7d8ba0;
+  --isi-graphite: #3b4a63;
+  --isi-ink: #011e41;
+
+  /* ── Derived tints/shades ─────────────────────────────────────────────
+     Not in the brand kit: interaction states and dark-surface variants the
+     six colours can't cover on their own. Derived from them by design. */
+  --isi-apex-blue-light: #3b84d1;    /* Apex on dark backgrounds (contrast) */
+  --isi-apex-blue-lighter: #6fa6e2;
+  --isi-blaze-light: #f0855c;        /* Blaze on dark backgrounds */
+  --isi-blaze-hover: #c94a1f;
+  --isi-green-light: #4cba62;        /* Green on dark backgrounds */
+  --isi-danger: #c0362c;             /* Destructive — the kit has no red */
+  --isi-danger-light: #e2685c;
+
+  /* Dark-mode navy surfaces, stepped off Ironclad Blue. */
+  --isi-abyss: #030f22;              /* page ground, dark */
+  --isi-deep: #06182f;               /* sidebar / chrome, dark */
+  --isi-panel: #0b2244;              /* cards, dark */
+
+  /* ── Type ─────────────────────────────────────────────────────────────── */
+  --isi-font-sans: 'ABC Ginto', 'MiSans Khmer', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Helvetica, Arial, sans-serif;
+  --isi-font-khmer: 'MiSans Khmer', 'ABC Ginto', 'Noto Sans Khmer', sans-serif;
+  --isi-font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --isi-ls-display: -0.02em; /* display: tight, engineered */
+  --isi-ls-heading: -0.01em;
+  --isi-ls-label: 0.14em;    /* eyebrows only, always uppercase */
+  --isi-lh-khmer: 1.9;       /* clears stacked vowels and subscripts */
+
+  /* ── Motion (restrained, functional — no bounces) ────────────────────── */
+  --isi-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --isi-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --isi-dur-fast: 120ms;
+  --isi-dur-med: 200ms;
+  --isi-dur-slow: 320ms;
+}

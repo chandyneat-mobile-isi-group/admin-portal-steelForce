@@ -1,0 +1,64 @@
+# =============================================================================
+# Build-context exclusions.
+#
+# Everything not listed here is uploaded to the daemon on every build, so this
+# file governs build speed as much as image contents. Two rules matter most:
+#
+#   1. Never ship a secret. A file excluded here cannot end up in a layer, and a
+#      layer is forever - deleting a file in a later RUN does not remove it from
+#      the image history.
+#   2. Never ship host build output. A host node_modules carries darwin/glibc
+#      binaries that break in an Alpine container, and a stale .next carries
+#      generated route types pointing at paths that no longer exist - which
+#      fails `next build` inside the image for reasons invisible in the source.
+# =============================================================================
+
+## Host build output. Must never enter the container - see rule 2 above.
+## `.next*` also covers the NEXT_DIST_DIR convention (.next-prod, .next-dev).
+node_modules
+.next*
+out
+build
+coverage
+*.tsbuildinfo
+next-env.d.ts
+
+## Secrets. Belt and braces - .env is gitignored too, but a developer who has
+## one locally must not have it baked into an image. Next loads .env during
+## `next build`, so a stray copy would be inlined into the client bundle.
+.env
+.env.*
+!.env.example
+*.pem
+
+## Version control and IDE state.
+.git
+.gitignore
+.vscode
+.idea
+.DS_Store
+
+## Other deploy targets. Irrelevant to the container image.
+netlify.toml
+vercel.json
+.vercel
+
+## Documentation and generated analysis. Large, and changes on every doc edit,
+## which would bust the build cache for no reason.
+docs/
+graphify-out/
+*.md
+
+## Docker's own files. Changing compose configuration must not invalidate the
+## image build cache.
+Dockerfile
+Dockerfile.*
+.dockerignore
+compose*.yml
+docker-compose*.yml
+
+## Logs.
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*

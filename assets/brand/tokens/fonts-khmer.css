@@ -1,0 +1,52 @@
+/* ISI Group — Khmer typeface
+   MiSans Khmer — the Khmer-script companion to ABC Ginto. Ten weights.
+
+   Declared twice on purpose:
+   1. As its own family "MiSans Khmer", for explicit Khmer-first typography.
+   2. As Khmer-range additions to the "ABC Ginto" family, so every existing
+      token and component renders Khmer automatically with no markup change.
+      unicode-range means the browser only downloads these when Khmer is present. */
+
+/* ---- 1. Standalone family: all ten weights ---- */
+
+@font-face { font-family: "MiSans Khmer"; src: url("../assets/fonts/khmer/MiSansKhmer-Thin.otf") format("opentype");       font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "MiSans Khmer"; src: url("../assets/fonts/khmer/MiSansKhmer-ExtraLight.otf") format("opentype"); font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: "MiSans Khmer"; src: url("../assets/fonts/khmer/MiSansKhmer-Light.otf") format("opentype");      font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "MiSans Khmer"; src: url("../assets/fonts/khmer/MiSansKhmer-Normal.otf") format("opentype");     font-weight: 350; font-style: normal; font-display: swap; }
+@font-face { font-family: "MiSans Khmer"; src: url("../assets/fonts/khmer/MiSansKhmer-Regular.otf") format("opentype");    font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "MiSans Khmer"; src: url("../assets/fonts/khmer/MiSansKhmer-Medium.otf") format("opentype");     font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "MiSans Khmer"; src: url("../assets/fonts/khmer/MiSansKhmer-Demibold.otf") format("opentype");   font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "MiSans Khmer"; src: url("../assets/fonts/khmer/MiSansKhmer-Semibold.otf") format("opentype");   font-weight: 650; font-style: normal; font-display: swap; }
+@font-face { font-family: "MiSans Khmer"; src: url("../assets/fonts/khmer/MiSansKhmer-Bold.otf") format("opentype");       font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "MiSans Khmer"; src: url("../assets/fonts/khmer/MiSansKhmer-Heavy.otf") format("opentype");      font-weight: 900; font-style: normal; font-display: swap; }
+
+/* ---- 2. Khmer coverage inside the ABC Ginto family ----
+   Range: Khmer block, Khmer Symbols, ZWSP (word-breaking in Khmer),
+   and U+25CC (dotted circle placeholder shown for orphaned diacritics). */
+
+@font-face {
+  font-family: "ABC Ginto";
+  src: url("../assets/fonts/khmer/MiSansKhmer-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+1780-17FF, U+19E0-19FF, U+200B, U+25CC;
+}
+
+@font-face {
+  font-family: "ABC Ginto";
+  src: url("../assets/fonts/khmer/MiSansKhmer-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+1780-17FF, U+19E0-19FF, U+200B, U+25CC;
+}
+
+@font-face {
+  font-family: "ABC Ginto";
+  src: url("../assets/fonts/khmer/MiSansKhmer-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+1780-17FF, U+19E0-19FF, U+200B, U+25CC;
+}

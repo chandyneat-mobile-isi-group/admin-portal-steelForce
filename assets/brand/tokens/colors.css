@@ -1,0 +1,62 @@
+/* ISI Group — Color System
+   Six-color system from the ISI Group Color System (Pantone-backed).
+   Navy-led, industrial, confident. */
+
+:root {
+  /* ---- Brand palette (exact brand values) ---- */
+  --isi-foundational-white: #dce3eb; /* PANTONE 656 C — light blue-grey ground */
+  --isi-ironclad-blue:      #011e41; /* PANTONE 282 C — primary navy */
+  --isi-apex-blue:          #004a98; /* PANTONE 2945 C — active/link blue */
+  --isi-sustainable-green:  #2c9942; /* PANTONE 7739 C — positive/eco */
+  --isi-worksite-blaze:     #e0592a; /* PANTONE 7579 C — energetic accent */
+  --isi-dark-sapphire:      #002169; /* PANTONE 280 C — deep support blue */
+
+  /* ---- Neutral ramp (derived from Ironclad Blue / Foundational White) ---- */
+  --isi-white:   #ffffff;
+  --isi-mist:    #eef2f6; /* between white and foundational white */
+  --isi-cloud:   #dce3eb; /* = foundational white */
+  --isi-steel:   #b7c2d0; /* borders on light */
+  --isi-slate:   #7d8ba0; /* muted text on light */
+  --isi-graphite:#3b4a63; /* secondary text */
+  --isi-ink:     #011e41; /* = ironclad blue, primary text */
+
+  /* ---- Semantic: surfaces ---- */
+  --surface-page:      var(--isi-mist);
+  --surface-card:      var(--isi-white);
+  --surface-raised:    var(--isi-white);
+  --surface-sunken:    var(--isi-cloud);
+  --surface-inverse:   var(--isi-ironclad-blue);
+  --surface-brand:     var(--isi-ironclad-blue);
+  --surface-brand-alt: var(--isi-dark-sapphire);
+
+  /* ---- Semantic: text ---- */
+  --text-strong:   var(--isi-ink);
+  --text-body:     #1b2a45;
+  --text-muted:    var(--isi-slate);
+  --text-inverse:  var(--isi-foundational-white);
+  --text-on-brand: #ffffff;
+  --text-link:     var(--isi-apex-blue);
+
+  /* ---- Semantic: borders ---- */
+  --border-subtle:  #e2e8f0;
+  --border-default: var(--isi-steel);
+  --border-strong:  var(--isi-graphite);
+  --border-focus:   var(--isi-apex-blue);
+
+  /* ---- Semantic: interactive / status ---- */
+  --accent:            var(--isi-worksite-blaze);
+  --accent-hover:      #c94a1f;
+  --primary:           var(--isi-ironclad-blue);
+  --primary-hover:     #012a5c;
+  --primary-active:    #001630;
+  --info:              var(--isi-apex-blue);
+  --success:           var(--isi-sustainable-green);
+  --success-surface:   #e8f4eb;
+  --warning:           var(--isi-worksite-blaze);
+  --warning-surface:   #fceee8;
+  --danger:            #c0362c;
+  --danger-surface:    #f8ebe9;
+
+  /* focus ring */
+  --focus-ring: 0 0 0 3px rgba(0, 74, 152, 0.35);
+}

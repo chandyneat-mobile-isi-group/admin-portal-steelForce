@@ -1,0 +1,30 @@
+/* ISI Group — Web fonts
+   ABC Ginto (Dinamo) — geometric grotesque, the sole brand typeface.
+   Provided weights: Regular (400), Medium (500), Bold (700). */
+
+@font-face {
+  font-family: "ABC Ginto";
+  src: url("../assets/fonts/ABCGinto-Regular.woff2") format("woff2"),
+       url("../assets/fonts/ABCGinto-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ABC Ginto";
+  src: url("../assets/fonts/ABCGinto-Medium.woff2") format("woff2"),
+       url("../assets/fonts/ABCGinto-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ABC Ginto";
+  src: url("../assets/fonts/ABCGinto-Bold.woff2") format("woff2"),
+       url("../assets/fonts/ABCGinto-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
